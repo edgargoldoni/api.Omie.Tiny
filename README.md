@@ -2,6 +2,11 @@
 
 Este projeto tem como objetivo realizar a integração entre as APIs do **Tiny** e **Omie** para o processamento de notas fiscais, com foco na gestão de vendedores e na automação de envio de dados entre os sistemas. O código é responsável por consultar notas fiscais, processá-las e, se necessário, enviar informações para a Omie, além de realizar o gerenciamento e a limpeza de dados no formato XML.
 
+Autor
+Este projeto foi desenvolvido para Levits BPO Financeiro.
+
+Para mais informações, visite o site oficial: Levits BPO Financeiro. https://levitsbpo.net/
+
 ## Sumário
 
 - [Visão Geral](#visão-geral)
@@ -136,10 +141,10 @@ if __name__ == '__main__':
         logging.info(f'Nota fiscal enviada para o Omie: {result}')
 
 
+
+###
+
 Contribuições
 Contribuições são bem-vindas! Se você encontrar algum erro ou tiver sugestões de melhorias, fique à vontade para abrir uma issue ou enviar um pull request.
 
-Autor
-Este projeto foi desenvolvido para Levits BPO Financeiro.
 
-Para mais informações, visite o site oficial: Levits BPO Financeiro. https://levitsbpo.net/
