@@ -20,7 +20,8 @@ Este script realiza as seguintes funções principais:
 2. **Limpeza e Conversão de XML**: As notas fiscais são obtidas em formato XML e passam por um processo de limpeza e conversão, onde removem-se namespaces e caracteres especiais.
 3. **Integração com a Omie**: Com as notas fiscais processadas, o script realiza a inclusão de novos vendedores na Omie, caso necessário, e envia os dados para o sistema Omie, associando os vendedores às notas fiscais.
 4. **Logging Detalhado**: O sistema de logging do Python é configurado para registrar o progresso, erros e informações detalhadas do processo em arquivos de log, que são rotacionados para não exceder o tamanho máximo.
-## Como Funciona
+
+## Funcionamento
 
 ### Leitura e Filtragem das Notas Fiscais
 O script começa fazendo uma pesquisa na API do Tiny para obter as notas fiscais geradas em um intervalo de tempo (configurado como 2 dias atrás).
@@ -40,24 +41,29 @@ Certifique-se de ter as seguintes bibliotecas instaladas no seu ambiente:
 - **hashlib**: Para gerar o hash MD5 dos XMLs.
 - **xml.etree.ElementTree**: Para manipulação de XMLs.
 
-Configuração
+## Configuração Inicial
+
 No início do script, você deve configurar algumas variáveis essenciais para que o sistema funcione corretamente:
 
-API do Tiny:
+### API do Tiny:
 
-TINY_API_TOKEN: O token de acesso à API do Tiny.
-API do Omie:
+- `TINY_API_TOKEN`: O token de acesso à API do Tiny.
 
-OMIE_API_KEY: A chave da API Omie.
-OMIE_API_SECRET: O segredo da API Omie.
-Configurações de Log:
+### API do Omie:
 
-LOG_DIR: O diretório onde os arquivos de log serão armazenados.
-LOG_FILENAME_PREFIX: O prefixo do nome dos arquivos de log.
-LOG_MAX_BYTES: O tamanho máximo do arquivo de log antes de realizar a rotação.
-LOG_BACKUP_COUNT: O número de backups de logs a serem mantidos.
-Exemplo de configuração inicial:
+- `OMIE_API_KEY`: A chave da API Omie.
+- `OMIE_API_SECRET`: O segredo da API Omie.
 
+### Configurações de Log:
+
+- `LOG_DIR`: O diretório onde os arquivos de log serão armazenados.
+- `LOG_FILENAME_PREFIX`: O prefixo do nome dos arquivos de log.
+- `LOG_MAX_BYTES`: O tamanho máximo do arquivo de log antes de realizar a rotação.
+- `LOG_BACKUP_COUNT`: O número de backups de logs a serem mantidos.
+
+### Exemplo de configuração inicial:
+
+```python
 # Credenciais da API do Tiny
 TINY_API_TOKEN = 'seu_token_do_tiny'
 
@@ -71,7 +77,14 @@ LOG_FILENAME_PREFIX = "integração_tiny_omie"  # Prefixo dos arquivos de log
 LOG_MAX_BYTES = 10 * 1024 * 1024  # Tamanho máximo dos arquivos de log (10MB)
 LOG_BACKUP_COUNT = 5  # Número de backups a serem mantidos
 
+
+Como Usar
+Clone este repositório em sua máquina local.
+Instale as dependências listadas em requirements.txt ou manualmente.
+Configure as variáveis de ambiente ou as variáveis no script conforme as instruções acima.
+Execute o script principal para integrar as APIs do Tiny e Omie.
 Exemplo de uso do script:
+
 import requests
 import hashlib
 import logging
