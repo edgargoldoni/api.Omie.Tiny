@@ -1,17 +1,25 @@
-# Integração entre Tiny e Omie - Automação de Envio de Notas Fiscais
+# Integração entre Tiny e Omie para Processamento de Notas Fiscais
 
-Este projeto tem como objetivo automatizar o processo de integração entre dois sistemas de gestão: **Tiny** e **Omie**. Através deste sistema, as Notas Fiscais geradas no Tiny são enviadas para a plataforma Omie, permitindo que as empresas automatizem seus processos de vendas e contabilidade de maneira mais eficiente.
+Este projeto tem como objetivo realizar a integração entre as APIs do **Tiny** e **Omie** para o processamento de notas fiscais, com foco na gestão de vendedores e na automação de envio de dados entre os sistemas. O código é responsável por consultar notas fiscais, processá-las e, se necessário, enviar informações para a Omie, além de realizar o gerenciamento e a limpeza de dados no formato XML.
 
-## Funcionalidade
+## Sumário
 
-O script realiza os seguintes passos:
+- [Visão Geral](#visão-geral)
+- [Pré-requisitos](#pré-requisitos)
+- [Configuração Inicial](#configuração-inicial)
+- [Funcionamento](#funcionamento)
+- [Como Usar](#como-usar)
+- [Detalhes das Funções](#detalhes-das-funções)
+- [Considerações Finais](#considerações-finais)
 
-1. **Consulta e Filtra Notas Fiscais no Tiny:** O sistema faz uma consulta na API do Tiny para buscar notas fiscais geradas dentro de um intervalo de data.
-2. **Obtém Detalhes da Nota Fiscal:** Para cada nota fiscal, o sistema obtém detalhes como a chave de acesso, o nome do vendedor e o ID do vendedor.
-3. **Verificação de Vendedores:** O sistema verifica se o vendedor associado à nota fiscal já está cadastrado na plataforma Omie. Caso não esteja, o sistema o inclui.
-4. **Processamento do XML da Nota Fiscal:** O XML da nota fiscal é obtido do Tiny, limpo (removendo namespaces) e convertido para o formato adequado para o Omie.
-5. **Envio para Omie:** O XML da nota fiscal é enviado para o Omie, junto com as informações adicionais, como a chave de acesso e o ID do vendedor.
+## Visão Geral
 
+Este script realiza as seguintes funções principais:
+
+1. **Consulta e Processamento de Notas Fiscais**: O código consulta a API do Tiny para obter informações sobre as notas fiscais emitidas, processando os dados conforme necessário.
+2. **Limpeza e Conversão de XML**: As notas fiscais são obtidas em formato XML e passam por um processo de limpeza e conversão, onde removem-se namespaces e caracteres especiais.
+3. **Integração com a Omie**: Com as notas fiscais processadas, o script realiza a inclusão de novos vendedores na Omie, caso necessário, e envia os dados para o sistema Omie, associando os vendedores às notas fiscais.
+4. **Logging Detalhado**: O sistema de logging do Python é configurado para registrar o progresso, erros e informações detalhadas do processo em arquivos de log, que são rotacionados para não exceder o tamanho máximo.
 ## Como Funciona
 
 ### Leitura e Filtragem das Notas Fiscais
